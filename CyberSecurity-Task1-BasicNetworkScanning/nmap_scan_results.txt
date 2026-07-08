@@ -1,0 +1,127 @@
+=========================================
+NMAP SCAN RESULTS
+Oasis Infobyte Cyber Security Internship
+Task 1 - Basic Network Scanning with Nmap
+=========================================
+
+Target IP Address:
+10.0.2.15
+
+Scan Date:
+08 July 2026
+
+==================================================
+
+1. Nmap Version Check
+   ==================================================
+
+Command:
+nmap --version
+
+Purpose:
+To verify that Nmap is installed and ready for use.
+
+Status:
+Nmap is installed successfully.
+
+==================================================
+2. Local IP Address
+===================
+
+Command:
+hostname -I
+
+Result:
+10.0.2.15
+
+Purpose:
+To identify the local machine's IP address before performing the scan.
+
+==================================================
+3. Basic Network Scan
+=====================
+
+Command:
+nmap 10.0.2.15
+
+Output:
+
+Starting Nmap 7.98 ( https://nmap.org )
+Nmap scan report for 10.0.2.15
+Host is up.
+
+PORT   STATE  SERVICE
+80/tcp open   http
+
+Analysis:
+The scan identified one open TCP port:
+
+* Port 80 is open.
+* The service running on this port is HTTP.
+
+==================================================
+4. Service Version Detection
+============================
+
+Command:
+nmap -sV 10.0.2.15
+
+Output:
+
+PORT   STATE  SERVICE VERSION
+80/tcp open   http    Apache httpd 2.4.66 ((Debian))
+
+Analysis:
+The HTTP service is running on the Apache Web Server.
+Detected Version:
+Apache httpd 2.4.66 (Debian)
+
+==================================================
+5. Operating System Detection
+=============================
+
+Command:
+sudo nmap -O 10.0.2.15
+
+Output:
+
+Running:
+Linux 5.X - 6.X
+
+OS Details:
+Linux Kernel 5.0 - 6.2
+
+Analysis:
+Nmap identified the target operating system as Linux. The result is based on OS fingerprinting and may vary depending on available network information.
+
+==================================================
+6. Security Analysis
+====================
+
+Open Port:
+80/TCP
+
+Service:
+HTTP (Apache Web Server)
+
+Purpose:
+Port 80 is used to provide web services using the HTTP protocol.
+
+Potential Security Risks:
+
+* HTTP traffic is not encrypted.
+* Sensitive information may be intercepted during transmission.
+* If Apache is not updated regularly, known vulnerabilities may be exploited.
+
+Recommendations:
+
+* Use HTTPS instead of HTTP whenever possible.
+* Keep Apache updated with the latest security patches.
+* Disable unnecessary services and close unused ports.
+* Perform regular vulnerability assessments using Nmap and other security tools.
+
+==================================================
+Conclusion
+==========
+
+The Nmap scan successfully identified the open port, detected the running service and its version, and estimated the operating system. Network scanning is an essential cybersecurity practice for identifying exposed services and improving overall system security. This scan was performed on a local machine for educational purposes only.
